@@ -1,0 +1,12 @@
+def checkPassphrase(s):
+  s = map(str, s.split(' '))
+  words = set(s)
+  return len(words) == len(s)
+  
+def moreComplexRule(s):
+  s = list(map(str, map(sorted, s.split(' '))))
+  words = set(s)
+  return len(words) == len(s)
+  
+def test(passphrases):
+  return sum([1 for phrase in passphrases.split('\n') if moreComplexRule(phrase)])
